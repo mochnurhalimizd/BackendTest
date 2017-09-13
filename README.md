@@ -27,3 +27,26 @@ Run API Driver
 
 1. cd/{HOME}/test-ice-house/driver/API
 2. go run main.go
+
+
+
+
+Running Rest API Driver
+
+localhost:8000/connect/{from} GET
+localhost:8000/getAllRequest GET
+localhost:8000/sendPresence/{from} GET
+localhost:8000/acceptRequest/{from}/{to}/{lat}/{lon} GET
+localhost:8000/sendLocation/{from}/{to}/{lat}/{lon} GET
+localhost:8000/startTrip/{from}/{to} GET 
+localhost:8000/endTrip/{from}/{to}/{distance} GET
+
+
+Running Rest API Passenger
+
+localhost:8001//connect/{from} GET
+localhost:8001//sendPresence/{from} GET
+localhost:8001//sendRequest/{from}/{lat}/{lon} GET
+localhost:8001//getAllRequest GET
+localhost:8001//getLocationDriver GET
+
