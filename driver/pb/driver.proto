@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+package driver;
+
+
+service driver{
+	rpc GetRequestUser(RequestFilter) returns (stream RequestUser){}
+	rpc ReceiveRequest(RequestUser) returns (RequestResponse){}
+	rpc AcceptRequest(AcceptUser) returns (AcceptResponse){}
+	rpc SendLocation(RequestLocation) returns (ResponseLocation){}
+	rpc startTrip(RequestStartTrip) returns (ResponseTrip){}
+	rpc endTrip(RequestEndTrip) returns (ResponseTrip){}
+}
+
+message RequestEndTrip{
+	string From = 1;
+	string To = 2;
+	int32 Distance = 3;
+}
+
+message RequestStartTrip{
+	string From = 1;
+	string To = 2;
+}
+
+message ResponseTrip{
+	string From = 1;
+	bool success = 2;
+}
+
+
+
+message AcceptUser{
+	string From = 1;
+	string To = 2;
+	float Lat = 3;
+	float Lon = 4;
+}
+
+message AcceptResponse{
+	string From = 1;
+	bool success = 2;
+}
+
+message RequestLocation{
+	string From = 1;
+	string To = 2;
+	float Lat = 3;
+	float Lon = 4;
+}
+
+message RequestResponse{
+	string From = 1;
+	bool success = 2;
+}
+
+message ResponseLocation{
+	string From = 1;
+	bool success = 2;
+}
+
+message RequestUser{
+	string From = 1;
+	float Lat = 2;
+	float Lon = 3;
+	string status = 4;
+}
+
+message RequestFilter{
+  string UserKey = 1;
+}
